@@ -45,7 +45,7 @@ openUserFile(ifstream& input) {
     string fileName = GetLine();
 
     input.open(fileName.c_str());
-    
+
     if (input.is_open()) {
       return;
     }
@@ -111,6 +111,18 @@ printWorld(gameT& game) {
     cout << game.world[row] << endl;
   }
   cout << "Food eaten: " << game.numEaten << endl;
+}
+
+void
+displayResult(gameT& game) {
+  printWorld(game);
+
+  if(game.numEaten == kMaxFood) {
+    cout << "The snake ate enough food and wins!" << endl;
+  }
+  else {
+    cout << "Oh no! The snake crashed!" << endl;
+  }
 }
 
 void
